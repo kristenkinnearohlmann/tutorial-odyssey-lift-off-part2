@@ -10,7 +10,12 @@ async function startApolloServer() {
     typeDefs,
     resolvers,
   });
-  const { url } = await startStandaloneServer(server);
+  const { url } = await startStandaloneServer(server, {
+    context: async () => {
+      // this obect becomes our resolver's contextValue,
+      // the third positional argument
+    },
+  });
 
   console.log(`
       🚀  Server is running
