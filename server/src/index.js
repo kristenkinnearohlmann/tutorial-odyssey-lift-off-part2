@@ -14,6 +14,7 @@ async function startApolloServer() {
     context: async () => {
       // this obect becomes our resolver's contextValue,
       // the third positional argument
+      trackAPI: new TrackAPI();
     },
   });
 
