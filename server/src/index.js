@@ -15,9 +15,11 @@ async function startApolloServer() {
       // this obect becomes our resolver's contextValue,
       // the third positional argument
       // the name dataSources is convention
-      dataSources: {
-        trackAPI: new TrackAPI();
-      }
+      return {
+        dataSources: {
+          trackAPI: new TrackAPI(),
+        },
+      };
     },
   });
 
