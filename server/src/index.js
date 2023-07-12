@@ -12,12 +12,13 @@ async function startApolloServer() {
   });
   const { url } = await startStandaloneServer(server, {
     context: async () => {
+      const { cache } = server;
       // this obect becomes our resolver's contextValue,
       // the third positional argument
       // the name dataSources is convention
       return {
         dataSources: {
-          trackAPI: new TrackAPI(),
+          trackAPI: new TrackAPI({ cache }),
         },
       };
     },
